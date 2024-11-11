@@ -1,4 +1,3 @@
-using System;
 using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
 
@@ -8,14 +7,11 @@ public partial class Ball : GameObject {
     [ObservableProperty]
     private Point velocity = new Point(1.0, 0);
 
-    public Ball() : this(new Point(0, 0)) { }
-
     public Ball(Point location) : base(location) {
 
     }
 
     public void Tick() {
         Location = Location + Velocity;
-        Console.WriteLine($"Location: {Location}");
     }
 }

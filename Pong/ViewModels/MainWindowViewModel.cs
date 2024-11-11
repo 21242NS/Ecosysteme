@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Avalonia;
-using Pong.Model;
+﻿using Avalonia;
 using System.Collections.ObjectModel;
 
 namespace Pong.ViewModels;
@@ -9,19 +7,17 @@ public partial class MainWindowViewModel : GameBase
 {
     public int Width { get; } = 800;
     public int Height { get; } = 450;
-
-    [ObservableProperty]
     private Ball ball;
 
     public ObservableCollection<GameObject> GameObjects { get; } = new();
 
     public MainWindowViewModel() {
-        Ball = new Ball(new Point(400, 225));
-        GameObjects.Add(Ball);
+        ball = new Ball(new Point(Width/2-32, Height/2-32));
+        GameObjects.Add(ball);
     }
 
     protected override void Tick()
     {
-        this.Ball.Tick();
+        ball.Tick();
     }
 }

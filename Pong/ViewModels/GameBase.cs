@@ -1,6 +1,5 @@
 using System;
 using Avalonia.Threading;
-using Pong.ViewModels;
 
 namespace Pong.ViewModels;
 
