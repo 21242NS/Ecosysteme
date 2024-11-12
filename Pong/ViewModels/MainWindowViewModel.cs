@@ -9,6 +9,7 @@ public partial class MainWindowViewModel : GameBase
     public int Height { get; } = 450;
     private Ball ball;
 
+    // Liste des objets à afficher
     public ObservableCollection<GameObject> GameObjects { get; } = new();
 
     public MainWindowViewModel() {

@@ -3,6 +3,8 @@ using Avalonia.Threading;
 
 namespace Pong.ViewModels;
 
+// Impose d'implémenter la méthode Tick() et s'occupe de l'appeler 60 fois par seconde.
+// Cela sert de "boucle" principale pour notre application graphique.
 public abstract class GameBase: ViewModelBase
 {
     public const int TicksPerSecond = 60;
@@ -24,6 +26,7 @@ public abstract class GameBase: ViewModelBase
 
     protected abstract void Tick();
 
+    // Appelé dans App.axaml.cs
     public void Start()
     {
         _timer.IsEnabled = true;
