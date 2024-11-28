@@ -5,13 +5,10 @@ namespace Pong.ViewModels;
 
 public abstract partial class Plants : Form_of_life {
     [ObservableProperty]
-    private Point velocity = new Point(1.0, 0);
+    private float range_of_food;
 
     public Plants(Point location) : base(location) {
 
     }
 
-    public void Tick() {
-        Location = Location + Velocity;
-    }
 }
