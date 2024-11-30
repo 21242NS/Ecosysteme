@@ -11,6 +11,7 @@ public partial class Rose : Plants {
         this.Energy_count= 35;
         this.Defense= 3;
         this.Range_of_food = 5;
+        this.Type = "Plants";
     }
     public override void eat()
     {
@@ -26,12 +27,10 @@ public partial class Rose : Plants {
         }
         count++;
     }
-    public void is_dead(){
-        if(Point_of_life == 0){
-
-        }
+    public override void is_dead(){
+        
     }
-    public override void Tick(){
+    public void Tick(){
         eat();
         reproduction();
         if(Energy_count>0){
