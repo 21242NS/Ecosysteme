@@ -42,18 +42,25 @@ public partial class Lions : Carnivora , Range {
         }
         return nearest;
     }
-    public void move(){
-        //Point target = find_near()
-        //double velocity_X = 
-        //Point velocity
-    }
-    public override void eat(GameObject obj) {
+    public List<GameObject> sort(List<GameObject> obj){
         List<GameObject> animals=new List<GameObject>();
         foreach(GameObject objs in obj) {
             if(type_of_food(objs)){
                 animals.Add(objs);
             }
         }
+        return animals;
+    }
+    public Point move(Point loc){
+        double multX = (loc.X-this.Location.X)/this.Speed;
+        double multY = (loc.Y-this.Location.Y)/this.Speed;
+        double velocity_X = (loc.X-this.Location.X)/multX;
+        double velocity_Y = (loc.Y-this.Location.Y)/multY;
+        Point velocity = new Point(velocity_X,velocity_Y);
+        return velocity;
+    }
+    public override void eat(GameObject obj) {
+        
        
     }
     
