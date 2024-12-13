@@ -42,11 +42,13 @@ public partial class Lions : Carnivora , Range {
         }
         return nearest;
     }
-    public List<GameObject> sort(List<GameObject> obj){
+    public List<GameObject> sort(List<GameObject> obj){//essayer de mettre un gameobject pour généraliser
         List<GameObject> animals=new List<GameObject>();
         foreach(GameObject objs in obj) {
-            if(type_of_food(objs)){
-                animals.Add(objs);
+            if(objs is Animals || type_of_food(objs)){
+                if(objs is not Lions){
+                    animals.Add(objs);
+                }
             }
         }
         return animals;
@@ -59,7 +61,7 @@ public partial class Lions : Carnivora , Range {
         Point velocity = new Point(velocity_X,velocity_Y);
         return velocity;
     }
-    public override void eat(GameObject obj) {
+    public override void eat() {
         
        
     }
