@@ -8,7 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 
 namespace Pong.ViewModels;
-public partial class Lions : Carnivora , Range {   
+public partial class Lions : Carnivora  {   
     public Lions(Point location) : base(location) { 
         this.Point_of_life = 100;
         this.Energy_count= 35;
@@ -17,41 +17,8 @@ public partial class Lions : Carnivora , Range {
         this.Speed = 3;
         this.Attack_speed = 100;
         this.Attack_point = 10;
-    }
-    public List<GameObject> is_in_Range(ObservableCollection<GameObject> gameObjects, int range) {
-        List<GameObject> inrange = new List<GameObject>();
-        foreach(GameObject obj in gameObjects)
-        {
-            double vector_range = Math.Sqrt(Math.Pow(obj.Location.X-this.Location.X, 2)+Math.Pow(obj.Location.Y-this.Location.Y, 2));
-            if (vector_range<this.Vision_range){
-                inrange.Add(obj);
-            }
-        }
-        return inrange;
-    }
-    public Point find_near(List<GameObject> animal){
-        Point nearest = this.Location;
-        foreach(GameObject obje in animal) {
-            double vector_range = Math.Sqrt(Math.Pow(obje.Location.X-this.Location.X, 2)+Math.Pow(obje.Location.Y-this.Location.Y, 2));
-            double near = 5;
-            Point objects = obje.Location;
-            if (vector_range<near){
-                near = vector_range;
-                nearest = objects;
-            }
-        }
-        return nearest;
-    }
-    public List<GameObject> sort(List<GameObject> obj){//essayer de mettre un gameobject pour généraliser
-        List<GameObject> animals=new List<GameObject>();
-        foreach(GameObject objs in obj) {
-            if(objs is Animals || type_of_food(objs)){
-                if(objs is not Lions){
-                    animals.Add(objs);
-                }
-            }
-        }
-        return animals;
+        this.Maximum_energy =35;
+        this.Maximum_point_of_life =100;
     }
     public Point move(Point loc){
         double multX = (loc.X-this.Location.X)/this.Speed;
@@ -61,8 +28,32 @@ public partial class Lions : Carnivora , Range {
         Point velocity = new Point(velocity_X,velocity_Y);
         return velocity;
     }
-    public override void eat() {
-        
+
+    public override void eat(GameObject obj) {
+        if (obj is Meat){
+            if (this.Point_of_life==this.Maximum_point_of_life&& this.Energy_count< this.Maximum_energy){
+                this.Energy_count += 5;
+            }
+            else {
+                this.Point_of_life += 5;
+                if (this.Point_of_life>this.Maximum_point_of_life){
+                    this.Point_of_life = this.Maximum_point_of_life;
+                }
+            }
+        }
+        else {
+            if(obj is Animals){
+                Animals a = (Animals) obj;
+                if(this.Attack_point>a.Defense){
+                    int demage = this.Attack_point-a.Defense;
+                    a.Point_of_life -= demage;
+                }
+                else {
+                    int demage = a.Defense-this.Attack_point;
+                    this.Point_of_life-=demage;
+                }
+            }
+        }
        
     }
     
