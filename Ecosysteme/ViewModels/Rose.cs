@@ -30,7 +30,7 @@ public partial class Rose : Plants {
 
     }
     public void Tick(){
-        eat();
+        //eat();
         reproduction();
         if(Energy_count>0){
             Energy_count-=1;
