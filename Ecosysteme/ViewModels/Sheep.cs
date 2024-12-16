@@ -35,8 +35,8 @@ public partial class Sheep : Herbivore  {
         List<GameObject> food_possibility = sort<Sheep,Plants,Plants>(in_range);
         if(food_possibility.Count > 0){
             GameObject objectiv = find_near(food_possibility);
-            double distance = Math.Sqrt(Math.Pow(objectiv.Location.X-this.Location.X, 2)+Math.Pow(objectiv.Location.Y-this.Location.Y, 2));
-            this.Velocity = move(objectiv.Location);
+            //double distance = Math.Sqrt(Math.Pow(objectiv.Location.X-this.Location.X, 2)+Math.Pow(objectiv.Location.Y-this.Location.Y, 2));
+            this.Velocity = moveit(objectiv.Location);
             //if (distance<Hit_box+Attack_range){
 
             //}

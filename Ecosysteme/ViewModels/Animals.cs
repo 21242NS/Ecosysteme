@@ -42,12 +42,13 @@ public abstract partial class Animals : Form_of_life, Range {
         GameObject game_object = null;
         foreach(GameObject obje in animal) {
             double vector_range = Math.Sqrt(Math.Pow(obje.Location.X-this.Location.X, 2)+Math.Pow(obje.Location.Y-this.Location.Y, 2));
-            double near = 5;
+            double near = this.Vision_range;
             if (vector_range<near){
                 near = vector_range;
                 game_object = obje;
             }
         }
+        
         return game_object;
     }
     public List<GameObject> sort<T,S, H>(List<GameObject> obj) where T : GameObject
@@ -73,12 +74,18 @@ public abstract partial class Animals : Form_of_life, Range {
         }
         return another_animal;
     }
-    public Point move(Point loc){
+    public Point moveit(Point loc){
+     
         double multX = (loc.X-this.Location.X)/this.Speed;
+        Console.WriteLine(multX);
         double multY = (loc.Y-this.Location.Y)/this.Speed;
-        double velocity_X = (loc.X-this.Location.X)/multX;
-        double velocity_Y = (loc.Y-this.Location.Y)/multY;
+        Console.WriteLine(multY);
+        double velocity_X = (loc.X-this.Location.X)/Math.Abs(multX);
+        Console.WriteLine(velocity_X);
+        double velocity_Y = (loc.Y-this.Location.Y)/Math.Abs(multY);
+        Console.WriteLine(velocity_Y);
         Point velocity = new Point(velocity_X,velocity_Y);
+        Console.WriteLine("here6");
         return velocity;
     }
     
