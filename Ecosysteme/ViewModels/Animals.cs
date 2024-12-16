@@ -15,6 +15,10 @@ public abstract partial class Animals : Form_of_life, Range {
     private float attack_speed;
     [ObservableProperty]
     private float speed;
+    [ObservableProperty]
+    private float attack_range;
+    [ObservableProperty]
+    private Point velocity;
 
     public Animals(Point location) : base(location) {
 
@@ -23,7 +27,7 @@ public abstract partial class Animals : Form_of_life, Range {
     {
         return (obj is T);
      }
-    public List<GameObject> is_in_Range(ObservableCollection<GameObject> gameObjects, int range) {
+    public List<GameObject> is_in_Range(ObservableCollection<GameObject> gameObjects, float range) {
         List<GameObject> inrange = new List<GameObject>();
         foreach(GameObject obj in gameObjects)
         {
@@ -34,20 +38,19 @@ public abstract partial class Animals : Form_of_life, Range {
         }
         return inrange;
     }
-    public Point find_near(List<GameObject> animal){
-        Point nearest = this.Location;
+    public GameObject find_near(List<GameObject> animal){
+        GameObject game_object = null;
         foreach(GameObject obje in animal) {
             double vector_range = Math.Sqrt(Math.Pow(obje.Location.X-this.Location.X, 2)+Math.Pow(obje.Location.Y-this.Location.Y, 2));
             double near = 5;
-            Point objects = obje.Location;
             if (vector_range<near){
                 near = vector_range;
-                nearest = objects;
+                game_object = obje;
             }
         }
-        return nearest;
+        return game_object;
     }
-    public List<GameObject> sort<T, S, H>(List<GameObject> obj) where T : GameObject
+    public List<GameObject> sort<T,S, H>(List<GameObject> obj) where T : GameObject
     where S : GameObject
     where H : GameObject
     {//essayer de mettre un gameobject pour généraliser
@@ -69,6 +72,14 @@ public abstract partial class Animals : Form_of_life, Range {
             }
         }
         return another_animal;
+    }
+    public Point move(Point loc){
+        double multX = (loc.X-this.Location.X)/this.Speed;
+        double multY = (loc.Y-this.Location.Y)/this.Speed;
+        double velocity_X = (loc.X-this.Location.X)/multX;
+        double velocity_Y = (loc.Y-this.Location.Y)/multY;
+        Point velocity = new Point(velocity_X,velocity_Y);
+        return velocity;
     }
     
 

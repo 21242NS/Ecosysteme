@@ -1,5 +1,7 @@
+using System.Collections.ObjectModel;
 using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Pong.ViewModels;
 
@@ -29,7 +31,7 @@ public partial class Rose : Plants {
     public override void is_dead(){
 
     }
-    public void Tick(){
+    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> objects){
         //eat();
         reproduction();
         if(Energy_count>0){
@@ -41,5 +43,8 @@ public partial class Rose : Plants {
         if (Point_of_life==0){
             is_dead();
         }
+        return objects;
     }
+   
+
 }

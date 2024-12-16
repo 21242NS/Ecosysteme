@@ -10,9 +10,10 @@ namespace Pong.ViewModels;
 
 public partial class MainWindowViewModel : GameBase
 {
-    public int Width { get; } = 800;
-    public int Height { get; } = 450;
+    public int Width { get; } = 1000;
+    public int Height { get; } = 1000;
     private Lions lion1;
+    private Sheep sheep;
 
 
     // Liste des objets à afficher
@@ -20,21 +21,19 @@ public partial class MainWindowViewModel : GameBase
 
     public MainWindowViewModel() {
         lion1 = new Lions(new Point(Width/2-32,Height/2-32));
+        sheep = new Sheep(new Point(100,100));
         GameObjects.Add(lion1);
+        GameObjects.Add(sheep);
     }
 
     protected override void Tick()
     {
         foreach(GameObject obj in GameObjects){
-            if(obj is Animals) {
-                if(obj is Carnivora){
-                    Carnivora carnivor = (Carnivora)obj;
-                    Type type_of_carnivor = carnivor.GetType();
-                    List<GameObject> in_range = carnivor.is_in_Range(GameObjects, carnivor.get_vision_range());
-                    List<GameObject> food_possibility = carnivor.sort<Meat,Animals>(in_range);
-                    
-                }
+            if (obj is Form_of_life){
+                Form_of_life form_Of_Life = (Form_of_life)obj;
+                form_Of_Life.Tick(GameObjects);
             }
+            
         }
     }
 }
