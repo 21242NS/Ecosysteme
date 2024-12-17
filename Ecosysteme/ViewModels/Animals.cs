@@ -80,10 +80,19 @@ public abstract partial class Animals : Form_of_life, Range {
         if(loc.X-this.Location.X>0||loc.Y-this.Location.Y>0||loc.X-this.Location.X<0||loc.Y-this.Location.Y<0){
             double multX = (loc.X-this.Location.X)/this.Speed;
             double multY = (loc.Y-this.Location.Y)/this.Speed;
+            if(multX==0){
+                double velocity_y = (loc.Y-this.Location.Y)/Math.Abs(multY);
+                Point velocity1 = new Point(0,velocity_y);
+                return velocity1;
+            }
+            else if(multY==0){
+                double velocity_x = (loc.X-this.Location.X)/Math.Abs(multX);
+                Point velocity2 = new Point(velocity_x,0);
+            return velocity2;
+            }
             double velocity_X = (loc.X-this.Location.X)/Math.Abs(multX);
             double velocity_Y = (loc.Y-this.Location.Y)/Math.Abs(multY);
             Point velocity = new Point(velocity_X,velocity_Y);
-            Console.WriteLine(velocity);
             return velocity;
             }
         else {
@@ -98,7 +107,6 @@ public abstract partial class Animals : Form_of_life, Range {
         int number2 = random.Next(-3, 4);
         if (number1 +Location.X<50||number1+Location.X>Width){
             Point move_random = new Point(-this.Velocity.X,this.Velocity.Y);
-            Console.WriteLine(move_random);
             return move_random;    
             }
         if(number2+Location.Y<50||number2+Location.Y>Height){

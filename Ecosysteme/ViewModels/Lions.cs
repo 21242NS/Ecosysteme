@@ -17,7 +17,7 @@ public partial class Lions : Carnivora  {
         this.Point_of_life = 100;
         this.Energy_count= 35;
         this.Defense= 3;
-        this.Vision_range = 250;
+        this.Vision_range = 600;
         this.Speed = 3;
         this.Attack_speed = 100;
         this.Attack_point = 10;
