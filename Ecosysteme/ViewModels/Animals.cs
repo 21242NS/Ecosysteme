@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Pong.ViewModels;
 
@@ -75,18 +77,39 @@ public abstract partial class Animals : Form_of_life, Range {
         return another_animal;
     }
     public Point moveit(Point loc){
-     
-        double multX = (loc.X-this.Location.X)/this.Speed;
-        Console.WriteLine(multX);
-        double multY = (loc.Y-this.Location.Y)/this.Speed;
-        Console.WriteLine(multY);
-        double velocity_X = (loc.X-this.Location.X)/Math.Abs(multX);
-        Console.WriteLine(velocity_X);
-        double velocity_Y = (loc.Y-this.Location.Y)/Math.Abs(multY);
-        Console.WriteLine(velocity_Y);
-        Point velocity = new Point(velocity_X,velocity_Y);
-        Console.WriteLine("here6");
-        return velocity;
+        if(loc.X-this.Location.X>0||loc.Y-this.Location.Y>0||loc.X-this.Location.X<0||loc.Y-this.Location.Y<0){
+            double multX = (loc.X-this.Location.X)/this.Speed;
+            double multY = (loc.Y-this.Location.Y)/this.Speed;
+            double velocity_X = (loc.X-this.Location.X)/Math.Abs(multX);
+            double velocity_Y = (loc.Y-this.Location.Y)/Math.Abs(multY);
+            Point velocity = new Point(velocity_X,velocity_Y);
+            Console.WriteLine(velocity);
+            return velocity;
+            }
+        else {
+            Point velocity = new Point(0,0);
+            this.Location = loc;
+            return velocity;
+        }
+    }
+    public Point random_move(int Height, int Width){
+        Random random = new Random();
+        int number1 = random.Next(-3, 4); 
+        int number2 = random.Next(-3, 4);
+        if (number1 +Location.X<50||number1+Location.X>Width){
+            Point move_random = new Point(-this.Velocity.X,this.Velocity.Y);
+            Console.WriteLine(move_random);
+            return move_random;    
+            }
+        if(number2+Location.Y<50||number2+Location.Y>Height){
+            Point move_random = new Point(this.Velocity.X,-this.Velocity.Y);
+            return move_random;
+        }
+        else{
+            Point move = new Point(number1, number2);
+            return move;
+        }
+        
     }
     
 

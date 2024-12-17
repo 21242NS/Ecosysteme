@@ -28,7 +28,7 @@ public abstract partial class Form_of_life : GameObject {
     public virtual void is_dead(){
 
     }
-    public virtual ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects){
+    public virtual ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects, int Height, int Width){
         return gameobjects;
     }
     

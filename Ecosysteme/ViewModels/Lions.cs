@@ -17,7 +17,7 @@ public partial class Lions : Carnivora  {
         this.Point_of_life = 100;
         this.Energy_count= 35;
         this.Defense= 3;
-        this.Vision_range = 600;
+        this.Vision_range = 250;
         this.Speed = 3;
         this.Attack_speed = 100;
         this.Attack_point = 10;
@@ -30,24 +30,21 @@ public partial class Lions : Carnivora  {
     
 
     
-    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects){
+    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects, int Height, int Width){
         List<GameObject> in_range = is_in_Range(gameobjects, this.Vision_range);
         List<GameObject> food_possibility = sort<Lions,Meat,Animals>(in_range);
         if(food_possibility.Count > 0){
             GameObject objectiv = find_near(food_possibility);
             double distance = Math.Sqrt(Math.Pow(objectiv.Location.X-this.Location.X, 2)+Math.Pow(objectiv.Location.Y-this.Location.Y, 2));
             this.Velocity =moveit(objectiv.Location);
-            Console.WriteLine(Velocity);
             //if (distance<Hit_box+Attack_range){
 
             //}
 
             }
         else if(Count>100){
-            Random random = new Random();
-            int number1 = random.Next(-3, 4); 
-            int number2 = random.Next(-3, 4);
-            this.Velocity = new Point(number1, number2);
+            this.Velocity = random_move(Height-50, Width-50);
+            Console.WriteLine(Velocity);
             Count =0;
         }
         Location = Location + Velocity;

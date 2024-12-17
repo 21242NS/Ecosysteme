@@ -30,7 +30,7 @@ public partial class Sheep : Herbivore  {
     
 
     
-    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects){
+    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects, int Height, int Width){
         List<GameObject> in_range = is_in_Range(gameobjects, this.Vision_range);
         List<GameObject> food_possibility = sort<Sheep,Plants,Plants>(in_range);
         if(food_possibility.Count > 0){
@@ -43,10 +43,7 @@ public partial class Sheep : Herbivore  {
 
             }
         else if(Count>100){
-            Random random = new Random();
-            int number1 = random.Next(-3, 4); 
-            int number2 = random.Next(-3, 4);
-            this.Velocity = new Point(number1, number2);
+            this.Velocity = random_move(Height-50, Width-50);
             Count =0;
         }
         Location = Location + Velocity;

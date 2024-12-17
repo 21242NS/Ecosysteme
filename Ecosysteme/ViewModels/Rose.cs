@@ -31,7 +31,7 @@ public partial class Rose : Plants {
     public override void is_dead(){
 
     }
-    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> objects){
+    public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> objects, int Height, int Width){
         //eat();
         reproduction();
         if(Energy_count>0){

@@ -31,7 +31,7 @@ public partial class MainWindowViewModel : GameBase
         foreach(GameObject obj in GameObjects){
             if (obj is Form_of_life){
                 Form_of_life form_Of_Life = (Form_of_life)obj;
-                form_Of_Life.Tick(GameObjects);
+                form_Of_Life.Tick(GameObjects, Height, Width);
             }
             
         }
