@@ -15,6 +15,8 @@ public abstract partial class Form_of_life : GameObject {
     private int maximum_energy;
     [ObservableProperty]
     private int maximum_point_of_life;
+     [ObservableProperty]
+    private int count =0;
     
 
 
@@ -22,12 +24,10 @@ public abstract partial class Form_of_life : GameObject {
     }
     public virtual void eat(GameObject obj){
     }
-    public virtual void reproduction(){
-
+    public virtual Form_of_life reproduction(int time_of_reproduction){
+        return this;
     }
-    public virtual void is_dead(){
-
-    }
+  
     public virtual ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects, int Height, int Width){
         return gameobjects;
     }

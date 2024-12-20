@@ -13,7 +13,7 @@ namespace Pong.ViewModels;
 public partial class Sheep : Herbivore  {
     [ObservableProperty]
     private int count =0;
-    public Sheep(Point location) : base(location) { 
+    public Sheep(Point location, String gender) : base(location) { 
         this.Point_of_life = 100;
         this.Energy_count= 35;
         this.Defense= 3;
@@ -26,6 +26,7 @@ public partial class Sheep : Herbivore  {
         this.Hit_box = 15;
         this.Attack_range =25;
         this.Velocity =new Point(1, 1);
+        this.Gender=gender;
     }
     
 

@@ -11,9 +11,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Pong.ViewModels;
 public partial class Lions : Carnivora  {
-    [ObservableProperty]
-    private int count =0;
-    public Lions(Point location) : base(location) { 
+   
+    public Lions(Point location, String gender) : base(location) { 
         this.Point_of_life = 100;
         this.Energy_count= 35;
         this.Defense= 3;
@@ -26,29 +25,73 @@ public partial class Lions : Carnivora  {
         this.Hit_box = 15;
         this.Attack_range =25;
         this.Velocity =new Point(1, 1);
+        this.Gender = gender;
+    }
+    public override Form_of_life reproduction(int time_of_reproduction)
+    {   
+        //Lions lions = new Lions(Location, "Male");
+        if(Pregnant){
+            if(Count_pregnant%time_of_reproduction==0){
+                Random random = new Random();
+                int random_number = random.Next(0,2);
+                Count_pregnant=0;
+                return new Lions(Location, Type_of_gender[random_number]);
+                
+            }
+            Count_pregnant++;
+        }
+        
+        return this;
     }
     
 
     
     public override ObservableCollection<GameObject> Tick(ObservableCollection<GameObject>gameobjects, int Height, int Width){
+        
         List<GameObject> in_range = is_in_Range(gameobjects, this.Vision_range);
         List<GameObject> food_possibility = sort<Lions,Meat,Animals>(in_range);
-        if(food_possibility.Count > 0){
+        List<GameObject> partners = find_partner(in_range);
+        if(food_possibility.Count > 0 || partners.Count > 0){
             GameObject objectiv = find_near(food_possibility);
+            GameObject partner = find_near(partners);
             double distance = Math.Sqrt(Math.Pow(objectiv.Location.X-this.Location.X, 2)+Math.Pow(objectiv.Location.Y-this.Location.Y, 2));
-            this.Velocity =moveit(objectiv.Location);
-            //if (distance<Hit_box+Attack_range){
-
-            //}
+            double distance2 = Math.Sqrt(Math.Pow(partner.Location.X-this.Location.X, 2)+Math.Pow(partner.Location.Y-this.Location.Y, 2));
+            if(Energy_count<15)
+                this.Velocity =moveit(objectiv.Location);
+                if (distance<Hit_box+Attack_range){
+                    eat(objectiv);
+                }
+            else {
+                this.Velocity =moveit(partner.Location);
+                if (distance2<Hit_box+Attack_range){
+                    if(Gender=="female"){
+                        set_pregnant();
+                    }
+                    else{
+                        Lions lion = (Lions)partner;
+                        lion.set_pregnant();
+                    }
+                }
+                
+            }
 
             }
-        else if(Count>100){
+        else if(Count%100==0){
             this.Velocity = random_move(Height-50, Width-50);
             Console.WriteLine(Velocity);
-            Count =0;
         }
         Location = Location + Velocity;
         Count++;
+        if (Point_of_life<=0){
+            Meat meat = animal_died();
+            gameobjects.Add(meat);
+            gameobjects.Remove(this);
+        }
+        Form_of_life new_born = reproduction(1000);
+        if (new_born != this){
+            gameobjects.Add(new_born);
+        }
+
 
         
                     

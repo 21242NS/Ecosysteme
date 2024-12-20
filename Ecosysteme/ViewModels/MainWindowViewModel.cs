@@ -20,8 +20,8 @@ public partial class MainWindowViewModel : GameBase
     public ObservableCollection<GameObject> GameObjects { get; } = new();
 
     public MainWindowViewModel() {
-        lion1 = new Lions(new Point(Width/2-32,Height/2-32));
-        sheep = new Sheep(new Point(100,100));
+        lion1 = new Lions(new Point(Width/2-32,Height/2-32),"Male");
+        sheep = new Sheep(new Point(100,100),"Male");
         GameObjects.Add(lion1);
         GameObjects.Add(sheep);
     }

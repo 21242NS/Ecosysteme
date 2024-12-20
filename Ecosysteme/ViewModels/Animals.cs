@@ -21,6 +21,14 @@ public abstract partial class Animals : Form_of_life, Range {
     private float attack_range;
     [ObservableProperty]
     private Point velocity;
+    [ObservableProperty]
+    private String gender;
+    [ObservableProperty]
+    private List<String> type_of_gender=new List<String>{"Male", "Female"};
+    [ObservableProperty]
+    private Boolean pregnant = false;
+    [ObservableProperty]
+    private int count_pregnant;
 
     public Animals(Point location) : base(location) {
 
@@ -56,7 +64,7 @@ public abstract partial class Animals : Form_of_life, Range {
     public List<GameObject> sort<T,S, H>(List<GameObject> obj) where T : GameObject
     where S : GameObject
     where H : GameObject
-    {//essayer de mettre un gameobject pour généraliser
+    {
         List<GameObject> animals=new List<GameObject>();
         foreach(GameObject objs in obj) {
             if(objs is S || type_of_food<H>(objs)){ 
@@ -67,11 +75,14 @@ public abstract partial class Animals : Form_of_life, Range {
         }
         return animals;
     }
-    public List<GameObject> find_partener<T>(List<GameObject> obj) where T: GameObject{
+    public List<GameObject> find_partner(List<GameObject> obj){
         List<GameObject> another_animal = new List<GameObject>();
         foreach( GameObject objs in obj) {
-            if(objs is T){
-                another_animal.Add(objs);
+            if(objs.GetType() == this.GetType()){
+                Animals a = (Animals)objs;
+                if(a.Gender != this.Gender){
+                    another_animal.Add(objs);
+                }
             }
         }
         return another_animal;
@@ -119,7 +130,13 @@ public abstract partial class Animals : Form_of_life, Range {
         }
         
     }
-    
+    public Meat animal_died(){
+        return new Meat(this.Location);
+    }
+    public void set_pregnant(){
+        this.pregnant = true;
+    }
 
-    
+
+
 }
