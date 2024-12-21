@@ -5,9 +5,9 @@ namespace Pong.ViewModels;
 
 public partial class Organic : GameObject {
     [ObservableProperty]
-    private int quantity_of_energy;
-    public Organic(Point location, int fresh, int quantity_of_energy):base(location) {
-        this.quantity_of_energy = quantity_of_energy;
+    private int fresh;
+    public Organic(Point location):base(location) {
+        this.Fresh=100;
     }
     public void Tick(){
         

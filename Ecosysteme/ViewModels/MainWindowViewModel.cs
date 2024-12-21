@@ -13,7 +13,7 @@ public partial class MainWindowViewModel : GameBase
     public int Width { get; } = 1000;
     public int Height { get; } = 1000;
     private Lions lion1;
-    private Sheep sheep;
+    private Lions lion2;
 
 
     // Liste des objets à afficher
@@ -21,9 +21,10 @@ public partial class MainWindowViewModel : GameBase
 
     public MainWindowViewModel() {
         lion1 = new Lions(new Point(Width/2-32,Height/2-32),"Male");
-        sheep = new Sheep(new Point(100,100),"Male");
+        lion2 = new Lions(new Point(150,150),"Female");
         GameObjects.Add(lion1);
-        GameObjects.Add(sheep);
+        GameObjects.Add(lion2);
+       
     }
 
     protected override void Tick()
