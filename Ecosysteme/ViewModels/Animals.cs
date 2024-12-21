@@ -28,7 +28,7 @@ public abstract partial class Animals : Form_of_life, Range {
     [ObservableProperty]
     private Boolean pregnant = false;
     [ObservableProperty]
-    private int count_pregnant;
+    private int count_pregnant =1;
 
     public Animals(Point location) : base(location) {
 

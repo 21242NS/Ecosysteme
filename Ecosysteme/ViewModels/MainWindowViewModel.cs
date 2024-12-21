@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Pong.ViewModels;
 
@@ -28,13 +29,22 @@ public partial class MainWindowViewModel : GameBase
     }
 
     protected override void Tick()
-    {
+    {   
+        ObservableCollection<GameObject> new_gameobjects=new();
         foreach(GameObject obj in GameObjects){
             if (obj is Form_of_life){
                 Form_of_life form_Of_Life = (Form_of_life)obj;
-                form_Of_Life.Tick(GameObjects, Height, Width);
-            }
+                new_gameobjects = form_Of_Life.Tick(GameObjects, Height, Width);
+                foreach(GameObject obje in new_gameobjects){
+                    if(GameObjects.Contains(obje)){
+                        GameObjects.Add(obje);
+                    }
+                }
+            } 
             
         }
+        Console.WriteLine(GameObjects.Count);
+        
+        
     }
 }

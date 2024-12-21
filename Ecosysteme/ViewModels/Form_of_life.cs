@@ -16,7 +16,7 @@ public abstract partial class Form_of_life : GameObject {
     [ObservableProperty]
     private int maximum_point_of_life;
      [ObservableProperty]
-    private int count =0;
+    private int count =1;
     
 
 
