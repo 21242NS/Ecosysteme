@@ -116,11 +116,11 @@ public abstract partial class Animals : Form_of_life, Range {
         Random random = new Random();
         int number1 = random.Next(-3, 4); 
         int number2 = random.Next(-3, 4);
-        if (number1 +Location.X<50||number1+Location.X>Width){
+        if (number1 +Location.X<100||number1+Location.X>Width){
             Point move_random = new Point(-this.Velocity.X,this.Velocity.Y);
             return move_random;    
             }
-        if(number2+Location.Y<50||number2+Location.Y>Height){
+        if(number2+Location.Y<100||number2+Location.Y>Height){
             Point move_random = new Point(this.Velocity.X,-this.Velocity.Y);
             return move_random;
         }

@@ -30,18 +30,14 @@ public partial class MainWindowViewModel : GameBase
 
     protected override void Tick()
     {   
-        ObservableCollection<GameObject> new_gameobjects=new();
-        foreach(GameObject obj in GameObjects){
+       
+        foreach(GameObject obj in GameObjects.ToList()){
             if (obj is Form_of_life){
                 Form_of_life form_Of_Life = (Form_of_life)obj;
-                new_gameobjects = form_Of_Life.Tick(GameObjects, Height, Width);
-                foreach(GameObject obje in new_gameobjects){
-                    if(GameObjects.Contains(obje)){
-                        GameObjects.Add(obje);
-                    }
-                }
-            } 
+                form_Of_Life.Tick(GameObjects, Height, Width);
+            }
             
+  
         }
         Console.WriteLine(GameObjects.Count);
         
