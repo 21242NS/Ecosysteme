@@ -15,6 +15,7 @@ public partial class MainWindowViewModel : GameBase
     public int Height { get; } = 1000;
     private Lions lion1;
     private Lions lion2;
+    private Sheep sheep1;
 
 
     // Liste des objets à afficher
@@ -22,9 +23,11 @@ public partial class MainWindowViewModel : GameBase
 
     public MainWindowViewModel() {
         lion1 = new Lions(new Point(Width/2-32,Height/2-32),"Male");
-        lion2 = new Lions(new Point(150,150),"Female");
+        sheep1 = new Sheep(new Point(120,120), "Male");
+        //lion2 = new Lions(new Point(150,150),"Female");
         GameObjects.Add(lion1);
-        GameObjects.Add(lion2);
+        //GameObjects.Add(lion2);
+        GameObjects.Add(sheep1);
        
     }
 
@@ -39,7 +42,7 @@ public partial class MainWindowViewModel : GameBase
             
   
         }
-        Console.WriteLine(GameObjects.Count);
+        
         
         
     }

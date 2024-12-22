@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
 
@@ -9,7 +10,7 @@ public partial class Organic : GameObject {
     public Organic(Point location):base(location) {
         this.Fresh=100;
     }
-    public void Tick(){
-        
+    public ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> gameobjects){
+        return gameobjects;
     }
 }

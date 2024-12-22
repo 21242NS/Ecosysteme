@@ -131,12 +131,26 @@ public abstract partial class Animals : Form_of_life, Range {
         
     }
     public Meat animal_died(){
-        return new Meat(this.Location);
+        return new Meat(this.Location+new Point(10,10));
     }
     public void set_pregnant(){
         this.pregnant = true;
     }
 
-
-
+    public Organic poop(){
+        return new Organic(Location +new Point(10,10));
+    }
+    public void next_position(int Width, int Height){
+        if(Location.X +Velocity.X<50 || Location.X+Velocity.X>Width-50){
+                Velocity=new Point(-Velocity.X, Velocity.Y);
+                Location = Location + Velocity;
+            }
+        else if(Location.Y+Velocity.Y<50||Location.Y+Velocity.Y>Height-50){
+            Velocity=new Point(Velocity.X, -Velocity.Y);
+            Location = Location + Velocity;
+        }
+        else{
+            Location = Location + Velocity;
+        }
+    }
 }
