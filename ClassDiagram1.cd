@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Pong.ViewModels.Animals">
+    <Position X="13.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAgAAQAAAQgACIgAAAEAgAAYQAEAQAsBAAAAA=</HashCode>
+      <FileName>ViewModels\Animals.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Pong.ViewModels.Carnivora" Collapsed="true">
+    <Position X="16.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Carnivora.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Form_of_life">
+    <Position X="16.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAQAAAAAAAAAAAABAAgAAAAAAAAAYAAAAAAAAAARAI=</HashCode>
+      <FileName>ViewModels\Form_of_life.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.GameBase">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAIAABAAAAAIAAgAAAAQAA=</HashCode>
+      <FileName>ViewModels\GameBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.GameObject">
+    <Position X="16.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAAAA=</HashCode>
+      <FileName>ViewModels\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Herbivore">
+    <Position X="11.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Herbivore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Lions">
+    <Position X="16.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Lions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.MainWindowViewModel">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEBAAAAAAAEAAAAEAAAAAAAAAACAACAQAAQAA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Meat">
+    <Position X="22.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAABgAAAAAAAAAAACAAACAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Meat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Not_a_life">
+    <Position X="20.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Not_a_life.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Organic">
+    <Position X="24.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Organic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Plants">
+    <Position X="18.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModels\Plants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Rose">
+    <Position X="19" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAQAA=</HashCode>
+      <FileName>ViewModels\Rose.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.Sheep">
+    <Position X="11.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAA=</HashCode>
+      <FileName>ViewModels\Sheep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewModels.ViewModelBase" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Views.MainWindow">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.App">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.axaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Keyboard">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.Program">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pong.ViewLocator" BaseTypeListCollapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewLocator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Range">
+    <Position X="23.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>ViewModels\Range.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
