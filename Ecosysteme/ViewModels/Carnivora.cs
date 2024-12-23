@@ -11,6 +11,8 @@ public abstract partial class Carnivora : Animals  {
     }
     public override void eat(GameObject obj) {
         if (obj is Meat){
+            Meat meat = (Meat)obj;
+            meat.is_erased();
             if (this.Point_of_life==this.Maximum_point_of_life&& this.Energy_count< this.Maximum_energy){
                 this.Energy_count += 5;
             }
@@ -20,6 +22,8 @@ public abstract partial class Carnivora : Animals  {
                     this.Point_of_life = this.Maximum_point_of_life;
                 }
             }
+            
+
         }
         else {
             if(obj is Animals){
