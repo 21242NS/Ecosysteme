@@ -11,6 +11,9 @@ public partial class Organic : Not_a_life {
         this.Fresh=100;
     }
     public ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> gameobjects){
+        if(Erased){
+            gameobjects.Remove(this);
+        }
         return gameobjects;
     }
 }

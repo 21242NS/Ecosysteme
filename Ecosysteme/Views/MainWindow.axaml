@@ -43,6 +43,10 @@
                 <Rectangle Width ="10" Height="10" Fill="Brown"
                 Canvas.Top="20" Canvas.Left="20" StrokeThickness="3"/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:Rose}">
+                <Rectangle Width ="20" Height="20" Fill="Blue"
+                Canvas.Top="20" Canvas.Left="20" StrokeThickness="3"/>
+            </DataTemplate>
             
 
         </ItemsControl.DataTemplates>

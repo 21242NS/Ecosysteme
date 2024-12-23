@@ -16,21 +16,28 @@ public partial class MainWindowViewModel : GameBase
     private Lions lion1;
     private Lions lion2;
     private Sheep sheep1;
-    private Meat meat1;
+    private Sheep sheep2;
+    private Rose rose1;
+    private Rose rose2;
 
 
     // Liste des objets à afficher
     public ObservableCollection<GameObject> GameObjects { get; } = new();
 
     public MainWindowViewModel() {
-        //lion1 = new Lions(new Point(Width/2-32,Height/2-32),"Male");
-        //sheep1 = new Sheep(new Point(120,120), "Male");
-        //lion2 = new Lions(new Point(150,150),"Female");
-        meat1=new Meat(new Point(Width/2-32,Height/2-32));
-        GameObjects.Add(meat1);
+        lion1 = new Lions(new Point(Width/2-32,Height/2-32),"Male");
+        sheep1 = new Sheep(new Point(120,120), "Male");
+        lion2 = new Lions(new Point(750,750),"Female");
+        sheep2 = new Sheep(new Point(200,200), "Female");
+        rose1 = new Rose(new Point(200,500));
+        rose2 = new Rose(new Point(400,500));
         GameObjects.Add(lion1);
-        //GameObjects.Add(lion2);
+        GameObjects.Add(lion2);
         GameObjects.Add(sheep1);
+        GameObjects.Add(sheep2);
+        GameObjects.Add(rose1);
+        GameObjects.Add(rose2);
+
         
        
     }

@@ -27,8 +27,7 @@ public abstract partial class Animals : Form_of_life, Range {
     private List<String> type_of_gender=new List<String>{"Male", "Female"};
     [ObservableProperty]
     private Boolean pregnant = false;
-    [ObservableProperty]
-    private int count_pregnant =1;
+    
 
     public Animals(Point location) : base(location) {
 
@@ -37,7 +36,7 @@ public abstract partial class Animals : Form_of_life, Range {
     {
         return (obj is T);
      }
-    public List<GameObject> is_in_Range(ObservableCollection<GameObject> gameObjects, float range) {
+    public List<GameObject> is_in_Range(ObservableCollection<GameObject> gameObjects) {
         List<GameObject> inrange = new List<GameObject>();
         foreach(GameObject obj in gameObjects)
         {
