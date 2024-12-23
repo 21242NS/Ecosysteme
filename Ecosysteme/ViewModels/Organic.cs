@@ -10,8 +10,6 @@ public partial class Organic : Not_a_life {
     public Organic(Point location):base(location) {
         this.Fresh=100;
     }
-    [ObservableProperty]
-    private bool erased =false;
     public ObservableCollection<GameObject> Tick(ObservableCollection<GameObject> gameobjects){
         return gameobjects;
     }
