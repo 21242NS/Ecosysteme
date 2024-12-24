@@ -10,3 +10,8 @@ On a coder pour que maintenant avec le code en etat si on veut ajouter des nouve
 
 ### Dependency Inversion Principle :
 
+Toutes les classes qu'on a crée ne dépendent que de classe abstaraite ou d'interface.
+
+## Diagramme de classe :
+
+![alt text](./ClassDiagram1.png)
