@@ -18,9 +18,9 @@ Toutes les classes qu'on a crée ne dépendent que de classe abstaraite ou d'int
 
 ## Diagramme de séquence :
 
-
+![alt text](./Diagramme_de_sequence_Main_Window.png)
 
 ## Diagramme d'activité des Lions : 
 
-![alt text](./Diagrammed'activitéTickLions.png) 
+![alt text](./Diagrammed'activitéTickLions.png)
 
