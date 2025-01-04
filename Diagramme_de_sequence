@@ -1,0 +1,14 @@
+@startuml
+actor Main
+
+Main -> GameObjects : ToList()
+loop foreach(GameObject obj in GameObjects)
+    alt obj is Form_of_life
+        Main -> Form_of_life : Tick(GameObjects, Height, Width)
+    else obj is Meat
+        Main -> Meat : Tick(GameObjects)
+    else obj is Organic
+        Main -> Organic : Tick(GameObjects)
+    end
+end
+@enduml
