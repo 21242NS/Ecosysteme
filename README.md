@@ -1,3 +1,3 @@
-# AvaloniaGameBase
+# Ecosysteme de Schell Nicolas 
 
-Projet de base pour réaliser une application graphique 2D avec Avalonia UI
+Ceci est le projet de Schell Nicolas, Matricule 21242.
