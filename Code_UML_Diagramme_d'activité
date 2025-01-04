@@ -1,0 +1,72 @@
+/*
+@startuml
+start
+:next_position(Width, Height);
+:List<GameObject> in_range = is_in_Range(gameobjects);
+:List<GameObject> food_possibility = sort<Lions, Meat, Animals>(in_range);
+:List<GameObject> partners = find_partner(in_range);
+
+if (food_possibility.Count > 0 || partners.Count > 0) then (yes)
+    :GameObject objectiv = find_near(food_possibility);
+    :GameObject partner = find_near(partners);
+    if (this.Energy_count < 15 && food_possibility.Count > 0) then (yes)
+        :double distance = calculate_distance(objectiv.Location, this.Location);
+        :this.Velocity = moveit(objectiv.Location);
+        if (distance < Hit_box + Attack_range) then (yes)
+            :eat(objectiv);
+        endif
+    else if (this.Energy_count >= 15 && partners.Count > 0) then (yes)
+        :double distance2 = calculate_distance(partner.Location, this.Location);
+        :Lions lion = (Lions)partner;
+        if (lion.Pregnant == false && Pregnant == false) then (yes)
+            :this.Velocity = moveit(partner.Location);
+            if (distance2 < Hit_box + Attack_range) then (yes)
+                if (Gender == "Female" && Pregnant == false) then (yes)
+                    :set_pregnant();
+                else if (Gender == "Male" && lion.Pregnant == false) then (yes)
+                    :lion.set_pregnant();
+                endif
+            endif
+        else
+            if (Count % 100 == 0) then (yes)
+                :this.Velocity = random_move(Height - 100, Width - 100);
+            endif
+        endif
+    endif
+else
+    if (Count % 100 == 0) then (yes)
+        :this.Velocity = random_move(Height - 100, Width - 100);
+    endif
+endif
+
+:Count++;
+if (Point_of_life <= 0) then (yes)
+    :Meat meat = animal_died();
+    :gameobjects.Add(meat);
+    :gameobjects.Remove(this);
+    :return gameobjects;
+stop
+endif
+    :Form_of_life new_born = reproduction(1000);
+    if (new_born != this) then (yes)
+        :gameobjects.Add(new_born);
+    endif
+
+
+if (Count % 100 == 0) then (yes)
+    if (Energy_count > 0) then (yes)
+        :Energy_count -= 1;
+    else
+        :Point_of_life -= 1;
+    endif
+endif
+
+if (Count % 1000 == 0) then (yes)
+    :Organic organic = poop();
+    :gameobjects.Add(organic);
+endif
+
+:return gameobjects;
+stop
+@enduml
+*/
