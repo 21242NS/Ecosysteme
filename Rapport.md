@@ -10,7 +10,7 @@ On a coder pour que maintenant avec le code en etat si on veut ajouter des nouve
 
 ### Dependency Inversion Principle :
 
-Toutes les classes qu'on a crée ne dépendent que de classe abstaraite ou d'interface.
+Toutes les classes qu'on a crée ne dépendent que de classe abstaraite ou d'interface. Ce qui aide la maintenance du Code car notre code est plus modulable.
 
 ## Diagramme de classe :
 
