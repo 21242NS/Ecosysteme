@@ -15,3 +15,12 @@ Toutes les classes qu'on a crée ne dépendent que de classe abstaraite ou d'int
 ## Diagramme de classe :
 
 ![alt text](./ClassDiagram1.png)
+
+## Diagramme de séquence :
+
+
+
+## Diagramme d'activité des Lions : 
+
+![alt text](./Diagrammed'activitéTickLions.png) 
+
