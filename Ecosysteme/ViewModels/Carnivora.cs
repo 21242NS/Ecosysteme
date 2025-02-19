@@ -31,9 +31,6 @@ public abstract partial class Carnivora : Animals  {
                 if(this.Attack_point>a.Defense){
                     int demage = this.Attack_point-a.Defense;
                     a.Point_of_life -= demage;
-                    if(a.Point_of_life<=0){
-                        
-                    }
                 }
                 else {
                     int demage = a.Defense-this.Attack_point;

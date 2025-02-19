@@ -19,6 +19,8 @@ public partial class MainWindowViewModel : GameBase
     private Sheep sheep2;
     private Rose rose1;
     private Rose rose2;
+    private Pig pig1;
+    private Pig pig2;
 
 
     // Liste des objets à afficher
@@ -29,14 +31,18 @@ public partial class MainWindowViewModel : GameBase
         sheep1 = new Sheep(new Point(120,120), "Male");
         lion2 = new Lions(new Point(750,750),"Female");
         sheep2 = new Sheep(new Point(200,200), "Female");
-        rose1 = new Rose(new Point(200,500));
-        rose2 = new Rose(new Point(400,500));
+        rose1 = new Rose(new Point(200,750));
+        rose2 = new Rose(new Point(600,100));
+        pig1 = new Pig(new Point(500,20),"Male");
+        pig2 = new Pig(new Point(700,700),"Female");
         GameObjects.Add(lion1);
         GameObjects.Add(lion2);
         GameObjects.Add(sheep1);
         GameObjects.Add(sheep2);
         GameObjects.Add(rose1);
         GameObjects.Add(rose2);
+        GameObjects.Add(pig1);
+        GameObjects.Add(pig2);
 
         
        
